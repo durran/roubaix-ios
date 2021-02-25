@@ -1,16 +1,23 @@
-//
-//  ContentView.swift
-//  Roubaix
-//
-//  Created by Durran Jordan on 24.02.21.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State public var workouts = [Workout]()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List(workouts, id: \._id) { workout in
+                NavigationLink(destination: Text(workout.name)) {
+                    WorkoutDetail(workout: workout)
+                }
+            }
+            .navigationTitle("Choose Workout")
+            .onAppear(perform: fetchWorkouts)
+        }
+        .background(Color.black)
+    }
+    
+    func fetchWorkouts() {
+        fetchData(view: self)
     }
 }
 
