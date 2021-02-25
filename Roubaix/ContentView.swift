@@ -6,14 +6,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List(workouts, id: \._id) { workout in
-                NavigationLink(destination: Text(workout.name)) {
-                    WorkoutDetail(workout: workout)
+                NavigationLink(destination: WorkoutDetail(workout: workout)) {
+                    Text(workout.name)
                 }
             }
             .navigationTitle("Choose Workout")
             .onAppear(perform: fetchWorkouts)
         }
-        .background(Color.black)
     }
     
     func fetchWorkouts() {
