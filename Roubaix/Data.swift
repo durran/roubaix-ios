@@ -1,6 +1,6 @@
 import Foundation
 
-func fetchData(view: ContentView) {
+func fetchData(view: WorkoutList) {
     guard let url = URL(string: "http://127.0.0.1:8080/workouts") else {
         print("Invalid URL")
         return
