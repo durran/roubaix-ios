@@ -11,8 +11,9 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Choose Workout")
+            .background(Color.black)
             .onAppear(perform: fetchWorkouts)
-        }
+        }.background(Color.black)
     }
     
     func fetchWorkouts() {
